@@ -5,7 +5,7 @@ A simple pronoun role management and assignment discord bot
 ## Install
 
 - Install the most recent LTS (long-term service) version of [Node.js](https://nodejs.org/en/)
-- Install the latest version of Python 2.7
+- Install the latest version of [Python 2.7](https://www.python.org/downloads/)
 - Open a command prompt of your choice and navigate to the directory where you cloned this repository
 - set the PYTHON environment variable to the location of the Python 2.7 `python` executable file (e.g. C:\Python27\python.exe)
 - Run the command `npm install` to install dependencies
