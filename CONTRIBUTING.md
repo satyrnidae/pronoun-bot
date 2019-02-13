@@ -8,7 +8,7 @@ By following these condtribution guidelines, you can help ensure that enhancemen
 
 As an open-source endeavor, pronoun-bot depends on its users (which hopefully will include you!) to provide meaningful feedback and ideas to further its development and improve upon the core functionality of the project.  But that's not all; documentation is highly important for any end-user-facing product, and pronoun-bot is no different!  If you can contribute anything, be it a bug report, a feature request, code updates, or a wiki page, feel free to do so!
 
-Keep in mind, though, that the issue tracker is for bug reports and feature requests only.  Support, discussion, and other feedback should instead be directed to the [Lepivulptory Development Discord](https://discord.gg/kEB2XtU), under the #pronoun-support channel.
+Keep in mind, though, that the issue tracker is for bug reports and feature requests only.  Support, discussion, and other feedback should instead be directed to the [Lepivulptery Development Discord](https://discord.gg/kEB2XtU), under the #pronoun-support channel.
 
 ## Responsibilities
 
@@ -44,4 +44,4 @@ Issue templates are provided for submitting an issue or feature request!  Please
 
 ## Community
 
-Feel free to hop into the [Lepivulptory Discord Server](https://discord.gg/kEB2XtU) to chat with contributors, get support questions answered, and offer your feedback on this and other projects!
+Feel free to hop into the [Lepivulptery Discord Server](https://discord.gg/kEB2XtU) to chat with contributors, get support questions answered, and offer your feedback on this and other projects!
