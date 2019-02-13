@@ -1,0 +1,10 @@
+{
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.tabSize": 4
+  },
+  "files.encoding": "utf8",
+  "editor.detectIndentation": false
+}

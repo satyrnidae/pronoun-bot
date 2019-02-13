@@ -1,0 +1,30 @@
+{
+  "name": "pronoun-bot",
+  "version": "1.0.0",
+  "description": "A simple pronoun role management and assignment discord bot",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node index.ts",
+    "debug": "node --inspect-brk ./bin/index.js"
+  },
+  "keywords": [
+    "pronouns",
+    "discord"
+  ],
+  "author": "satyrnidae",
+  "license": "MIT",
+  "dependencies": {
+    "@types/i18n": "^0.8.3",
+    "@types/node": "^10.12.24",
+    "@types/yargs-parser": "^11.0.2",
+    "discord-command-parser": "^1.2.1",
+    "discord.js": "^11.4.2",
+    "enmap": "^4.7.1",
+    "i18n": "^0.8.3",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3",
+    "yargs-parser": "^13.0.0"
+  },
+  "devDependencies": {}
+}

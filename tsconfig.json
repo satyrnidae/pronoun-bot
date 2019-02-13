@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "target": "es2017",
+        "outDir": "./bin",
+        "sourceMap": true,
+        "module": "commonjs"
+    },
+    "include": [
+        "api/**/*.ts",
+        "src/**/*.ts",
+        "commands/*.ts",
+        "events/*.ts",
+        "index.ts",
+        "reg*.json",
+        "config.json",
+        "locale/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "bin"
+    ]
+}
