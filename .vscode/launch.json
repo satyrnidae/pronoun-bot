@@ -20,7 +20,7 @@
         "type": "node",
         "request": "launch",
         "name": "Launch Program",
-        "program": "${workspaceFolder}/bin/index.js",
+        "program": "${workspaceFolder}/bin/main.js",
         "console": "integratedTerminal",
         "outFiles": [
             "${workspaceFolder}/bin/**/*.js"

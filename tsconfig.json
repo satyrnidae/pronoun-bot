@@ -13,7 +13,7 @@
         "src/**/*.ts",
         "commands/*.*",
         "events/*.*",
-        "index.ts",
+        "main.ts",
         "config/**/*.json",
         "locale/*.json"
     ],

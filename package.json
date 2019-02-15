@@ -2,11 +2,11 @@
   "name": "pronoun-bot",
   "version": "1.0.0",
   "description": "A simple pronoun role management and assignment discord bot",
-  "main": "index.ts",
+  "main": "main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node index.ts",
-    "debug": "node --inspect-brk ./bin/index.js"
+    "start": "ts-node main.ts",
+    "debug": "node --inspect-brk ./bin/main.js"
   },
   "keywords": [
     "pronouns",
