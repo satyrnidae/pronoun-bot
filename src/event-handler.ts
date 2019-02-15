@@ -5,5 +5,5 @@ import { Client } from 'discord.js';
 export default interface EventHandler {
     name: string;
 
-    handle(getCommands: () => Enmap<string, Command>, client: Client, ...args: any[]): boolean;
+    handle(getCommands: () => Enmap<string, Command>, client: Client, ...args: any[]): any;
 }

@@ -20,5 +20,7 @@
   "hi! I'm %s, the pronoun role assignment robot!": "hi! I'm %s, the pronoun role assignment robot!",
   "To list all of the commands I can understand, just send %s%s to any channel I can read. Or, you can also DM me if you want!": "To list all of the commands I can understand, just send %s%s to any channel I can read. Or, you can also DM me if you want!",
   "You can also check my documentation on %s!": "You can also check my documentation on %s!",
-  "Thanks! %s": "Thanks! %s"
+  "Thanks! %s": "Thanks! %s",
+  "Pronoun Assignment": "Pronoun Assignment",
+  "Logged in as %s and ready for service!": "Logged in as %s and ready for service!"
 }
