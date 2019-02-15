@@ -1,6 +1,6 @@
 import fs = require('fs');
 import i18n = require('i18n');
-import container from './src/config/ioc-config';
+import container from './src/ioc-config';
 import registeredEvents from './events/registered-events.json';
 import registeredCommands from './commands/registered-commands.json';
 import { Client } from 'discord.js';

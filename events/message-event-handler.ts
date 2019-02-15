@@ -1,6 +1,6 @@
 import i18n = require('i18n')
 import yargsParser from 'yargs-parser';
-import container from '../src/config/ioc-config';
+import container from '../src/ioc-config';
 import discordCommandParser from 'discord-command-parser';
 import { ServiceIdentifiers } from '../src/constants';
 import { Client, Message, TextChannel } from 'discord.js';

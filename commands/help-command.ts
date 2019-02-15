@@ -1,5 +1,5 @@
 import i18n = require('i18n')
-import container from '../src/config/ioc-config';
+import container from '../src/ioc-config';
 import { getHeart } from '../src/messages';
 import { Client, Message } from 'discord.js';
 import { Options, Arguments } from 'yargs-parser';
@@ -37,7 +37,7 @@ export default class HelpCommand implements Command {
             return this.sendGeneralHelpMessage(client, message)
         }
 
-        //TODO: the rest of this
+        
     }
 
     checkPermissions(_message: Message): boolean {
