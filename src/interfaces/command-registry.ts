@@ -7,4 +7,6 @@ export default interface CommandRegistry {
     register(command: Command): Enmap<string, Command>;
 
     get(name: string): Command;
+
+    getAll(): Command[];
 }

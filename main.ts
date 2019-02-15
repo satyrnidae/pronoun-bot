@@ -9,8 +9,12 @@ import { ServiceIdentifiers } from './src/constants/index.js';
 import { Command, EventHandler, Configuration, CommandRegistry } from './src/interfaces';
 
 i18n.configure({
-    locales: ['en_US'],
-    directory: `${__dirname}/locale`
+    locales: ['en'],
+    fallbacks: {'*': 'en'},
+    directory: `${__dirname}/locale`,
+    logDebugFn: (msg) => console.debug(msg),
+    logWarnFn: (msg) => console.warn(msg),
+    logErrorFn: (msg) => console.error(msg)
 })
 
 var client = new Client();

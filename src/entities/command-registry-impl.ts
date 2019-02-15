@@ -18,4 +18,10 @@ export default class CommandRegistryImpl implements CommandRegistry {
     get(name: string): Command {
         return this.commands.get(name.toLowerCase());
     }
+
+    getAll(): Command[] {
+        var commands: Command[] = [];
+        this.commands.forEach(command => commands.push(command));
+        return commands;
+    }
 }

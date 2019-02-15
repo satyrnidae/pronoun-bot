@@ -22,5 +22,7 @@
   "You can also check my documentation on %s!": "You can also check my documentation on %s!",
   "Thanks! %s": "Thanks! %s",
   "Pronoun Assignment": "Pronoun Assignment",
-  "Logged in as %s and ready for service!": "Logged in as %s and ready for service!"
+  "Logged in as %s and ready for service!": "Logged in as %s and ready for service!",
+  "Here's a list of all of the commands I can help you with:": "Here's a list of all of the commands I can help you with:",
+  "You can find out more by specifying a single specific command:": "You can find out more by specifying a single specific command:"
 }
