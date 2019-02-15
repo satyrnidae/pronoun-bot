@@ -27,7 +27,7 @@ fs.readdir(commandDirectory, (err, items) => {
         return console.error(i18n.__('Unable to load commands from %s: %s', commandDirectory, `${err}`));
     }
     items.forEach(item => {
-        var [_,fileName,extension] = item.match(/^(.+)\.(.+)$/);
+        var [,fileName,extension] = item.match(/^(.+)\.(.+)$/);
         if(!extension.match(/^(ts|js)$/g)) {
             return console.warn(i18n.__('Skipped command file %s as it is does not appear to be a valid module file.', item));
         }
@@ -52,7 +52,7 @@ fs.readdir(eventDirectory, (err, items) => {
         return console.error(i18n.__('Unable to load events from %s: %s', eventDirectory, `${err}`));
     }
     items.forEach(item => {
-        var [_,fileName,extension] = item.match(/^(.+)\.(.+)$/);
+        var [,fileName,extension] = item.match(/^(.+)\.(.+)$/);
         if(!extension.match(/^(ts|js)$/g)) {
             return console.warn(i18n.__('Skipped event file %s as it is does not appear to be a valid module file.', item));
         }
