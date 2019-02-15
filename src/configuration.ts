@@ -62,5 +62,5 @@ export class ConfigurationWrapper {
     }
 }
 
-var configuration = new ConfigurationWrapper(<Configuration>JSON.parse(fs.readFileSync(`${__dirname}/../config.json`).toString()));
+var configuration = new ConfigurationWrapper(<Configuration>JSON.parse(fs.readFileSync(`${__dirname}/../config/config.json`).toString()));
 export default configuration;

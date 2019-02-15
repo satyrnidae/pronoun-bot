@@ -1,4 +1,4 @@
-import * as messages from '../messages.json';
+import * as messages from '../config/messages.json';
 
 export function getHeart() {
     //TODO: Per-guild configurable heart reactions via data access

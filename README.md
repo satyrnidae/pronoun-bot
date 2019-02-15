@@ -9,8 +9,8 @@ A simple pronoun role management and assignment discord bot
 - Open a command prompt of your choice and navigate to the directory where you cloned this repository
 - set the PYTHON environment variable to the location of the Python 2.7 `python` executable file (e.g. C:\Python27\python.exe)
 - Run the command `npm install` to install dependencies
-- Copy and rename the `config.init.json` file to `config.json`
-- Replace the value of `token` in `config.json` with your discord bot token
+- Copy and rename the `config/config.init.json` file to `config/config.json`
+- Replace the value of `token` in `config/config.json` with your discord bot token
 
 You can obtain your bot token from the [Discord Developer Portal](https://discordapp.com/developers/applications)
 

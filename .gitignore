@@ -64,7 +64,7 @@ typings/
 bin/
 
 # local configuration
-config.json
+config/config.json
 
 # SQLite3 Database
 db/
