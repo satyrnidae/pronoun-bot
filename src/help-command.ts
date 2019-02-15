@@ -1,11 +1,11 @@
 import i18n = require('i18n')
 import Enmap from 'enmap';
-import { Command, Configuration } from './interfaces';
-import { Client, Message } from 'discord.js';
-import { Options, Arguments } from 'yargs-parser';
-import { getHeart } from './messages';
 import container from './config/ioc-config';
+import { getHeart } from './messages';
+import { Client, Message } from 'discord.js';
 import { ServiceIdentifiers } from './constants';
+import { Options, Arguments } from 'yargs-parser';
+import { Command, Configuration } from './interfaces';
 
 export default class HelpCommand implements Command {
     name: string = 'help';
@@ -24,7 +24,7 @@ export default class HelpCommand implements Command {
 
     configuration: Configuration;
 
-    constructor(private getCommands: () => Enmap<string, Command>) { 
+    constructor(private getCommands: () => Enmap<string, Command>) {
         this.configuration = container.get(ServiceIdentifiers.Configuration);
     }
 
@@ -32,7 +32,7 @@ export default class HelpCommand implements Command {
         const commands = this.getCommands();
         const prefix = this.configuration.getPrefix(message.guild);
 
-        if(args._.length == 0 && !args['all'] && !args['command']) {
+        if (args._.length == 0 && !args['all'] && !args['command']) {
             return this.sendGeneralHelpMessage(client, message)
         }
 
@@ -46,17 +46,17 @@ export default class HelpCommand implements Command {
     private sendGeneralHelpMessage(client: Client, message: Message): Promise<Message | Message[]> {
         var helpMessage: string;
         var prefix: string = this.configuration.getPrefix(message.guild);
-        
-        if(!message.guild) {
-            helpMessage = i18n.__({phrase: "Hi! I'm %s, the pronoun role assignment robot!", locale: message.author['locale'] || 'en_US'}, client.user.username);
+
+        if (!message.guild) {
+            helpMessage = i18n.__({ phrase: "Hi! I'm %s, the pronoun role assignment robot!", locale: message.author['locale'] || 'en_US' }, client.user.username);
         } else {
-            helpMessage = i18n.__({phrase: "hi! I'm %s, the pronoun role assignment robot!", locale: message.author['locale'] || 'en_US'}, message.guild.members.get(client.user.id).displayName);
+            helpMessage = i18n.__({ phrase: "hi! I'm %s, the pronoun role assignment robot!", locale: message.author['locale'] || 'en_US' }, message.guild.members.get(client.user.id).displayName);
         }
 
         helpMessage = helpMessage.concat('\r\n')
-            .concat(i18n.__({phrase: 'To list all of the commands I can understand, just send %s%s to any channel I can read. Or, you can also DM me if you want!', locale: message.author['locale'] || 'en_US'}, prefix, 'help --all')).concat('\r\n')
-            .concat(i18n.__({phrase: 'You can also check my documentation on %s!', locale: message.author['locale'] || 'en_US'}, '<https://github.com/centurionfox/pronoun-bot>')).concat('\r\n')
-            .concat(i18n.__({phrase: 'Thanks! %s', locale: message.author['locale'] || 'en_US'}, getHeart()));
+            .concat(i18n.__({ phrase: 'To list all of the commands I can understand, just send %s%s to any channel I can read. Or, you can also DM me if you want!', locale: message.author['locale'] || 'en_US' }, prefix, 'help --all')).concat('\r\n')
+            .concat(i18n.__({ phrase: 'You can also check my documentation on %s!', locale: message.author['locale'] || 'en_US' }, '<https://github.com/centurionfox/pronoun-bot>')).concat('\r\n')
+            .concat(i18n.__({ phrase: 'Thanks! %s', locale: message.author['locale'] || 'en_US' }, getHeart()));
 
         return message.reply(helpMessage);
     }

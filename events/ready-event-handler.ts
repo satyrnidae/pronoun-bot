@@ -1,7 +1,7 @@
 import i18n = require('i18n')
 import Enmap from 'enmap'
-import { Command, EventHandler } from "../src/interfaces";
 import { Client } from 'discord.js';
+import { Command, EventHandler } from "../src/interfaces";
 
 export default class ReadyEventHandler implements EventHandler {
     name: string = 'ready';
@@ -17,5 +17,4 @@ export default class ReadyEventHandler implements EventHandler {
 
         //TODO: message welcome state
     }
-
 }

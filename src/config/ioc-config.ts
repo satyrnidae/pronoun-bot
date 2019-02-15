@@ -2,7 +2,7 @@ import "reflect-metadata";
 import { Container } from 'inversify';
 import { Configuration } from '../interfaces';
 import { ServiceIdentifiers } from '../constants';
-import ConfigurationWrapper from '../configuration-wrapper';
+import { ConfigurationWrapper } from '../entities';
 
 let container = new Container();
 

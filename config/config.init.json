@@ -1,12 +1,7 @@
 {
   "token": "",
-  "prefix": {
-    "default": "!"
-  },
-  "welcome": {
-    "enabled": true,
-    "guild": {}
-  },
+  "prefix": "!",
+  "welcomeMessage": true,
   "trustAllCommands": false,
   "trustAllEvents": false
 }
