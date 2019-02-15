@@ -7,6 +7,6 @@
     "enabled": true,
     "guild": {}
   },
-  "trustAllCmd": false,
-  "trustAllEvt": false
+  "trustAllCommands": false,
+  "trustAllEvents": false
 }
