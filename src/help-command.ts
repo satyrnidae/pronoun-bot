@@ -9,7 +9,7 @@ import { getHeart } from './messages';
 export default class HelpCommand implements Command {
     name: string = 'help';
     syntax: string[] = ['help', 'help {-a|--all}', 'help [-c|--command] *command*'];
-    description: string = i18n.__('Provides a detailed overview of any command registered with the bot.');
+    description: string = 'Provides a detailed overview of any command registered with the bot.';
     options: Options = {
         alias: {
             command: ['-c'],
@@ -43,15 +43,15 @@ export default class HelpCommand implements Command {
         var prefix: string = configuration.getPrefix(message.guild);
         
         if(!message.guild) {
-            helpMessage = i18n.__("Hi! I'm %s, the pronoun role assignment robot!", client.user.username);
+            helpMessage = i18n.__({phrase: "Hi! I'm %s, the pronoun role assignment robot!", locale: message.author['locale'] || 'en_US'}, client.user.username);
         } else {
-            helpMessage = i18n.__("hi! I'm %s, the pronoun role assignment robot!", message.guild.members.get(client.user.id).displayName);
+            helpMessage = i18n.__({phrase: "hi! I'm %s, the pronoun role assignment robot!", locale: message.author['locale'] || 'en_US'}, message.guild.members.get(client.user.id).displayName);
         }
 
         helpMessage = helpMessage.concat('\r\n')
-            .concat(i18n.__('To list all of the commands I can understand, just send %s%s to any channel I can read. Or, you can also DM me if you want!', prefix, 'help --all')).concat('\r\n')
-            .concat(i18n.__('You can also check my documentation on %s!', '<https://github.com/centurionfox/pronoun-bot>')).concat('\r\n')
-            .concat(i18n.__('Thanks! %s', getHeart()));
+            .concat(i18n.__({phrase: 'To list all of the commands I can understand, just send %s%s to any channel I can read. Or, you can also DM me if you want!', locale: message.author['locale'] || 'en_US'}, prefix, 'help --all')).concat('\r\n')
+            .concat(i18n.__({phrase: 'You can also check my documentation on %s!', locale: message.author['locale'] || 'en_US'}, '<https://github.com/centurionfox/pronoun-bot>')).concat('\r\n')
+            .concat(i18n.__({phrase: 'Thanks! %s', locale: message.author['locale'] || 'en_US'}, getHeart()));
 
         return message.reply(helpMessage);
     }

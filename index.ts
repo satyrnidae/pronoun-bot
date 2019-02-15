@@ -11,7 +11,7 @@ import { Client } from 'discord.js';
 import { contains } from './src/utility';
 
 i18n.configure({
-    locales: ['en'],
+    locales: ['en_US'],
     directory: `${__dirname}/locale`
 })
 
