@@ -18,6 +18,7 @@
   "dependencies": {
     "@types/i18n": "^0.8.3",
     "@types/node": "^10.12.24",
+    "@types/sqlite3": "^3.1.4",
     "@types/yargs-parser": "^11.0.2",
     "discord-command-parser": "^1.2.1",
     "discord.js": "^11.4.2",

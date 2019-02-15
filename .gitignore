@@ -65,3 +65,6 @@ bin/
 
 # local configuration
 config.json
+
+# SQLite3 Database
+db/
