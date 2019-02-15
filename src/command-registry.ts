@@ -1,7 +1,8 @@
 import i18n = require('i18n')
 import Enmap from 'enmap';
-import Command from './command'
 import HelpCommand from './help-command';
+import ConfigurationWrapper from './configuration-wrapper';
+import { Command } from './interfaces';
 
 export default class CommandRegistry {
     commands: Enmap<string, Command> = new Enmap<string, Command>();

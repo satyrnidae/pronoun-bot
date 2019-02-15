@@ -2,13 +2,13 @@ import registeredCommands from './commands/registered-commands.json';
 import registeredEvents from './events/registered-events.json';
 import fs = require('fs');
 import i18n = require('i18n');
-import Command from './src/command.js';
+import { Command, EventHandler, Configuration } from './src/interfaces';
 import EventBus from './src/event-bus';
-import EventHandler from './src/event-handler.js';
-import configuration from './src/configuration';
 import CommandRegistry from './src/command-registry';
 import { Client } from 'discord.js';
 import { contains } from './src/utility';
+import container from './src/config/ioc-config';
+import { ServiceIdentifiers } from './src/constants/index.js';
 
 i18n.configure({
     locales: ['en_US'],
@@ -16,6 +16,7 @@ i18n.configure({
 })
 
 var client = new Client();
+var configuration = container.get<Configuration>(ServiceIdentifiers.Configuration);
 
 var commandRegistry = new CommandRegistry();
 var eventBus = new EventBus(() => commandRegistry.commands, client);

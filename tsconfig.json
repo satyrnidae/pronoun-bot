@@ -5,7 +5,8 @@
         "target": "es2017",
         "outDir": "./bin",
         "sourceMap": true,
-        "module": "commonjs"
+        "module": "commonjs",
+        "experimentalDecorators": true
     },
     "include": [
         "api/**/*.ts",

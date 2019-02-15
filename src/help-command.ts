@@ -1,10 +1,11 @@
 import i18n = require('i18n')
 import Enmap from 'enmap';
-import Command from './command';
-import configuration from './configuration';
+import { Command, Configuration } from './interfaces';
 import { Client, Message } from 'discord.js';
 import { Options, Arguments } from 'yargs-parser';
 import { getHeart } from './messages';
+import container from './config/ioc-config';
+import { ServiceIdentifiers } from './constants';
 
 export default class HelpCommand implements Command {
     name: string = 'help';
@@ -21,11 +22,15 @@ export default class HelpCommand implements Command {
         }
     };
 
-    constructor(private getCommands: () => Enmap<string, Command>) { }
+    configuration: Configuration;
+
+    constructor(private getCommands: () => Enmap<string, Command>) { 
+        this.configuration = container.get(ServiceIdentifiers.Configuration);
+    }
 
     run(client: Client, message: Message, args: Arguments): any {
         const commands = this.getCommands();
-        const prefix = configuration.getPrefix(message.guild);
+        const prefix = this.configuration.getPrefix(message.guild);
 
         if(args._.length == 0 && !args['all'] && !args['command']) {
             return this.sendGeneralHelpMessage(client, message)
@@ -40,7 +45,7 @@ export default class HelpCommand implements Command {
 
     private sendGeneralHelpMessage(client: Client, message: Message): Promise<Message | Message[]> {
         var helpMessage: string;
-        var prefix: string = configuration.getPrefix(message.guild);
+        var prefix: string = this.configuration.getPrefix(message.guild);
         
         if(!message.guild) {
             helpMessage = i18n.__({phrase: "Hi! I'm %s, the pronoun role assignment robot!", locale: message.author['locale'] || 'en_US'}, client.user.username);

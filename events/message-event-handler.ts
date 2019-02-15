@@ -1,15 +1,21 @@
 import Enmap from 'enmap';
-import Command from '../src/command';
+import { Command, EventHandler, Configuration } from '../src/interfaces';
 import yargsParser from 'yargs-parser';
 import discordCommandParser from 'discord-command-parser';
-import configuration from '../src/configuration';
-import EventHandler from '../src/event-handler';
 import { Client, Message, TextChannel } from 'discord.js';
+import container from '../src/config/ioc-config';
+import { ServiceIdentifiers } from '../src/constants';
 
 export default class MessageEventHandler implements EventHandler {
-    name: string = "message";    
+    name: string = "message";
+    configuration: Configuration;
+
+    constructor() {
+        this.configuration = container.get(ServiceIdentifiers.Configuration);
+    }
+
     handle(getCommands: () => Enmap<string, Command>, client: Client, message: Message, ..._args: any[]): any {
-        var prefix = configuration.getPrefix(message.guild);
+        var prefix = this.configuration.getPrefix(message.guild);
         var parsedCommand = discordCommandParser.parse(message, prefix);
         if(!parsedCommand.success) return;
 

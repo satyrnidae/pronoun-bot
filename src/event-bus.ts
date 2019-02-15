@@ -1,7 +1,6 @@
 import Enmap from 'enmap';
-import Command from './command';
-import EventHandler from './event-handler';
 import { Client } from 'discord.js';
+import { Command, EventHandler } from './interfaces';
 
 export default class EventBus {
 

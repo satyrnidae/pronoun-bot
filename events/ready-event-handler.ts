@@ -1,7 +1,6 @@
 import i18n = require('i18n')
 import Enmap from 'enmap'
-import Command from '../src/command'
-import EventHandler from "../src/event-handler";
+import { Command, EventHandler } from "../src/interfaces";
 import { Client } from 'discord.js';
 
 export default class ReadyEventHandler implements EventHandler {
