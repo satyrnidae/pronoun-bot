@@ -10,12 +10,11 @@
     "include": [
         "api/**/*.ts",
         "src/**/*.ts",
-        "commands/*.ts",
-        "events/*.ts",
+        "commands/*.*",
+        "events/*.*",
         "index.ts",
-        "reg*.json",
-        "config.json",
-        "locale/*"
+        "config/**/*.json",
+        "locale/*.json"
     ],
     "exclude": [
         "node_modules",
