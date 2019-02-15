@@ -6,7 +6,7 @@ import { ConfigurationWrapper, CommandRegistryImpl } from '../entities';
 
 let container = new Container();
 
-container.bind<Configuration>(ServiceIdentifiers.Configuration).to(ConfigurationWrapper);
-container.bind<CommandRegistry>(ServiceIdentifiers.CommandRegistry).to(CommandRegistryImpl);
+container.bind<Configuration>(ServiceIdentifiers.Configuration).to(ConfigurationWrapper).inSingletonScope();
+container.bind<CommandRegistry>(ServiceIdentifiers.CommandRegistry).to(CommandRegistryImpl).inSingletonScope();
 
 export default container;

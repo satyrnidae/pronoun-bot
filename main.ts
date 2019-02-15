@@ -28,7 +28,7 @@ fs.readdir(commandDirectory, (err, items) => {
         if(!extension.match(/^(ts|js)$/g)) {
             return console.warn(i18n.__('Skipped command file %s as it is does not appear to be a valid module file.', item));
         }
-        if(configuration.trustAllCommands !== true && !contains(registeredCommands, fileName[0])) {
+        if(configuration.trustAllCommands !== true && !contains(registeredCommands, fileName)) {
             return console.warn(i18n.__('Skipped command file %s as it was not specified in the registered commands list.', item));
         }
         try {
