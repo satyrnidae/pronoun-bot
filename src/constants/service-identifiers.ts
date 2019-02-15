@@ -1,6 +1,6 @@
 const ServiceIdentifiers = {
     Configuration: Symbol.for('CONFIGURATION'),
-    Data: Symbol.for('DATA_ACCESS')
+    CommandRegistry: Symbol.for('COMMAND_REGISTRY')
 };
 
 export default ServiceIdentifiers;

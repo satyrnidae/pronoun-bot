@@ -1,14 +1,12 @@
 import fs = require('fs');
 import i18n = require('i18n');
-import EventBus from './src/event-bus';
 import container from './src/config/ioc-config';
-import CommandRegistry from './src/command-registry';
+import registeredEvents from './events/registered-events.json';
+import registeredCommands from './commands/registered-commands.json';
 import { Client } from 'discord.js';
 import { contains } from './src/utility';
 import { ServiceIdentifiers } from './src/constants/index.js';
-import { Command, EventHandler, Configuration } from './src/interfaces';
-import registeredEvents from './events/registered-events.json';
-import registeredCommands from './commands/registered-commands.json';
+import { Command, EventHandler, Configuration, CommandRegistry } from './src/interfaces';
 
 i18n.configure({
     locales: ['en_US'],
@@ -18,8 +16,7 @@ i18n.configure({
 var client = new Client();
 var configuration = container.get<Configuration>(ServiceIdentifiers.Configuration);
 
-var commandRegistry = new CommandRegistry();
-var eventBus = new EventBus(() => commandRegistry.commands, client);
+var commandRegistry = container.get<CommandRegistry>(ServiceIdentifiers.CommandRegistry);
 
 const commandDirectory = `${__dirname}/commands`;
 fs.readdir(commandDirectory, (err, items) => {
@@ -63,7 +60,7 @@ fs.readdir(eventDirectory, (err, items) => {
             const module = require(`${eventDirectory}/${item}`)
             const event = new module.default() as EventHandler;
             if(!event) return console.error(i18n.__('Failed to load event from %s', item));
-            eventBus.register(event);
+            client.on(event.name, event.handle.bind(event, client));
             return console.debug(i18n.__('Successfully registered event %s', event.name));
         } catch (ex) {
             return console.error(i18n.__('Failed to register event in file %s: %s', item, ex));

@@ -1,15 +1,11 @@
 import i18n = require('i18n')
 import Enmap from 'enmap';
-import HelpCommand from './help-command';
-import { Command } from './interfaces';
+import { injectable } from 'inversify';
+import { Command, CommandRegistry } from '../interfaces';
 
-export default class CommandRegistry {
+@injectable()
+export default class CommandRegistryImpl implements CommandRegistry {
     commands: Enmap<string, Command> = new Enmap<string, Command>();
-
-    constructor() {
-        let helpCommand = new HelpCommand(() => this.commands);
-        this.register(helpCommand);
-    }
 
     register(command: Command): Enmap<string, Command> {
         const commandName = command.name.toLowerCase();

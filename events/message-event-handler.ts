@@ -1,26 +1,27 @@
 import i18n = require('i18n')
-import Enmap from 'enmap';
 import yargsParser from 'yargs-parser';
 import container from '../src/config/ioc-config';
 import discordCommandParser from 'discord-command-parser';
 import { ServiceIdentifiers } from '../src/constants';
 import { Client, Message, TextChannel } from 'discord.js';
-import { Command, EventHandler, Configuration } from '../src/interfaces';
+import { EventHandler, Configuration, CommandRegistry } from '../src/interfaces';
 
 export default class MessageEventHandler implements EventHandler {
     name: string = 'message';
     configuration: Configuration;
+    commandRegistry: CommandRegistry;
 
     constructor() {
         this.configuration = container.get(ServiceIdentifiers.Configuration);
+        this.commandRegistry = container.get(ServiceIdentifiers.CommandRegistry);
     }
 
-    handle(getCommands: () => Enmap<string, Command>, client: Client, message: Message, ..._args: any[]): any {
+    handle(client: Client, message: Message, ..._args: any[]): any {
         var prefix = this.configuration.getPrefix(message.guild);
         var parsedCommand = discordCommandParser.parse(message, prefix);
         if(!parsedCommand.success) return;
 
-        const command = getCommands().get(parsedCommand.command);
+        const command = this.commandRegistry.get(parsedCommand.command);
         var senderId: string;
 
         if(message.member && message.guild && message.channel as TextChannel) {

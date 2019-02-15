@@ -1,12 +1,11 @@
 import i18n = require('i18n')
-import Enmap from 'enmap'
 import { Client } from 'discord.js';
-import { Command, EventHandler } from "../src/interfaces";
+import { EventHandler } from "../src/interfaces";
 
 export default class ReadyEventHandler implements EventHandler {
     name: string = 'ready';
 
-    handle(_getCommands: () => Enmap<string, Command>, client: Client, ..._args: any[]): any {
+    handle(client: Client, ..._args: any[]): any {
         client.on('error', (msg) => console.error(msg));
         client.on('warn', (msg) => console.warn(msg));
         client.on('info', (msg) => console.info(msg));

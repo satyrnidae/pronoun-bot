@@ -1,11 +1,10 @@
 import i18n = require('i18n')
-import Enmap from 'enmap';
-import container from './config/ioc-config';
-import { getHeart } from './messages';
+import container from '../src/config/ioc-config';
+import { getHeart } from '../src/messages';
 import { Client, Message } from 'discord.js';
-import { ServiceIdentifiers } from './constants';
 import { Options, Arguments } from 'yargs-parser';
-import { Command, Configuration } from './interfaces';
+import { ServiceIdentifiers } from '../src/constants';
+import { CommandRegistry, Command, Configuration } from '../src/interfaces';
 
 export default class HelpCommand implements Command {
     name: string = 'help';
@@ -23,13 +22,15 @@ export default class HelpCommand implements Command {
     };
 
     configuration: Configuration;
+    commandRegistry: CommandRegistry
 
-    constructor(private getCommands: () => Enmap<string, Command>) {
+    constructor() {
         this.configuration = container.get(ServiceIdentifiers.Configuration);
+        this.commandRegistry = container.get(ServiceIdentifiers.CommandRegistry);
     }
 
     run(client: Client, message: Message, args: Arguments): any {
-        const commands = this.getCommands();
+        const commands = this.commandRegistry.commands;
         const prefix = this.configuration.getPrefix(message.guild);
 
         if (args._.length == 0 && !args['all'] && !args['command']) {
