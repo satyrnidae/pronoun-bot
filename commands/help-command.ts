@@ -38,15 +38,30 @@ export default class HelpCommand implements Command {
         }
 
         if(args['all'] || args._[0] === "all") {
-            var helpMessage = i18n.__({phrase: "Here's a list of all of the commands I can help you with:", locale: locale}).concat('\r\n');
+            var helpMessage = i18n.__({phrase: "here's a list of all of the commands I can help you with:", locale: locale}).concat('\r\n');
             commands.forEach(command => {
-                helpMessage = `${helpMessage}\t•\t\**${command.name}**\:\r\n`;
-                command.syntax.forEach(option => helpMessage = `${helpMessage}\t\t•\t${prefix}${option}\r\n`);
+                helpMessage = `${helpMessage}\t•\t\**${prefix}${command.name}**\:\r\n`;
+                //command.syntax.forEach(option => helpMessage = `${helpMessage}\t\t•\t${prefix}${option}\r\n`);
             })
             helpMessage = helpMessage.concat(i18n.__({phrase: 'You can find out more by specifying a single specific command:', locale: locale})).concat('\r\n\t')
-                .concat(prefix).concat(this.syntax[2]);
+                .concat('**').concat(prefix).concat(this.syntax[2]).concat('**');
             return message.reply(helpMessage);
         }
+
+        var commandName = (args['command']||args._[0]) as string;
+        var command = commandRegistry.get(commandName);
+
+        if(command) {
+            var helpMessage = '\r\n'.concat(i18n.__({phrase: command.description, locale: locale})).concat('\r\n')
+                .concat(i18n.__({phrase: 'Usage:', locale: locale})).concat('\r\n')
+                command.syntax.forEach(option => {
+                    helpMessage = `${helpMessage}\t•\t${prefix}${option}\r\n`
+                });
+            return message.reply(helpMessage);
+        }
+
+        return message.reply(i18n.__({phrase: 'unfortunately, I don\'t know the command "%s"', locale:locale}, commandName).concat('\r\n')
+            .concat(i18n.__({phrase: 'If you\'d like to see a list of commands that I understand, just send **%s%s** to any channel I can read, or DM me if you like.', locale:locale}, prefix, this.syntax[1])));
     }
 
     checkPermissions(_message: Message): boolean {
@@ -65,7 +80,7 @@ export default class HelpCommand implements Command {
         }
 
         helpMessage = helpMessage.concat('\r\n')
-            .concat(i18n.__({ phrase: 'To list all of the commands I can understand, just send %s%s to any channel I can read. Or, you can also DM me if you want!', locale: locale }, prefix, 'help --all')).concat('\r\n')
+            .concat(i18n.__({ phrase: 'To list all of the commands I can understand, just send **%s%s** to any channel I can read. Or, you can also DM me if you want!', locale: locale }, prefix, this.syntax[1])).concat('\r\n')
             .concat(i18n.__({ phrase: 'You can also check my documentation on %s!', locale: locale }, '<https://github.com/centurionfox/pronoun-bot>')).concat('\r\n')
             .concat(i18n.__({ phrase: 'Thanks! %s', locale: locale }, getHeart()));
 

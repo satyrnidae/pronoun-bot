@@ -18,11 +18,14 @@
   "Provides a detailed overview of any command registered with the bot.":"Provides a detailed overview of any command registered with the bot.",
   "Hi! I'm %s, the pronoun role assignment robot!": "Hi! I'm %s, the pronoun role assignment robot!",
   "hi! I'm %s, the pronoun role assignment robot!": "hi! I'm %s, the pronoun role assignment robot!",
-  "To list all of the commands I can understand, just send %s%s to any channel I can read. Or, you can also DM me if you want!": "To list all of the commands I can understand, just send %s%s to any channel I can read. Or, you can also DM me if you want!",
+  "To list all of the commands I can understand, just send **%s%s** to any channel I can read. Or, you can also DM me if you want!": "To list all of the commands I can understand, just send **%s%s** to any channel I can read. Or, you can also DM me if you want!",
   "You can also check my documentation on %s!": "You can also check my documentation on %s!",
   "Thanks! %s": "Thanks! %s",
   "Pronoun Assignment": "Pronoun Assignment",
   "Logged in as %s and ready for service!": "Logged in as %s and ready for service!",
-  "Here's a list of all of the commands I can help you with:": "Here's a list of all of the commands I can help you with:",
-  "You can find out more by specifying a single specific command:": "You can find out more by specifying a single specific command:"
+  "here's a list of all of the commands I can help you with:": "here's a list of all of the commands I can help you with:",
+  "You can find out more by specifying a single specific command:": "You can find out more by specifying a single specific command:",
+  "Usage:": "Usage:",
+  "unfortunately, I don't know the command \"%s\"": "unfortunately, I don't know the command \"%s\"",
+  "If you'd like to see a list of commands that I understand, just send **%s%s** to any channel I can read, or DM me if you like.": "If you'd like to see a list of commands that I understand, just send **%s%s** to any channel I can read, or DM me if you like."
 }
