@@ -1,3 +1,24 @@
 {
-  
+  "Failed to connect to the database.": "Failed to connect to the database.",
+  "Successfully connected to the database.": "Successfully connected to the database.",
+  "The command %s was already registered.": "The command %s was already registered.",
+  "Unable to load commands from %s: %s": "Unable to load commands from %s: %s",
+  "Skipped command file %s as it is does not appear to be a valid module file.": "Skipped command file %s as it is does not appear to be a valid module file.",
+  "Skipped command file %s as it was not specified in the registered commands list.": "Skipped command file %s as it was not specified in the registered commands list.",
+  "Failed to load command from %s": "Failed to load command from %s: %s",
+  "Successfully registered command %s": "Successfully registered command %s",
+  "Failed to register command in file %s: %s": "Failed to register command in file %s: %s",
+  "Unable to load events from %s: %s": "Unable to load events from %s: %s",
+  "Skipped event file %s as it is does not appear to be a valid module file.": "Skipped event file %s as it is does not appear to be a valid module file.",
+  "Skipped event file %s as it was not specified in the registered events list.": "Skipped event file %s as it was not specified in the registered events list.",
+  "Failed to load event from %s": "Failed to load event from %s",
+  "Successfully registered event %s": "Successfully registered event %s",
+  "Failed to register event in file %s: %s": "Failed to register event in file %s: %s",
+  "Failed to launch pronoun bot:": "Failed to launch pronoun bot:",
+  "Provides a detailed overview of any command registered with the bot.":"Provides a detailed overview of any command registered with the bot.",
+  "Hi! I'm %s, the pronoun role assignment robot!": "Hi! I'm %s, the pronoun role assignment robot!",
+  "hi! I'm %s, the pronoun role assignment robot!": "hi! I'm %s, the pronoun role assignment robot!",
+  "To list all of the commands I can understand, just send %s%s to any channel I can read. Or, you can also DM me if you want!": "To list all of the commands I can understand, just send %s%s to any channel I can read. Or, you can also DM me if you want!",
+  "You can also check my documentation on %s!": "You can also check my documentation on %s!",
+  "Thanks! %s": "Thanks! %s"
 }
