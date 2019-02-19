@@ -16,13 +16,10 @@
   "repository": "https://github.com/centurionfox/pronoun-bot",
   "license": "MIT",
   "dependencies": {
-    "@types/i18n": "^0.8.3",
-    "@types/node": "^10.12.24",
-    "@types/sqlite3": "^3.1.4",
-    "@types/yargs-parser": "^11.0.2",
     "discord-command-parser": "^1.2.1",
     "discord.js": "git+https://github.com/discordjs/discord.js.git",
     "enmap": "^4.7.1",
+    "enmap-sqlite": "^2.0.5",
     "i18n": "^0.8.3",
     "inversify": "^5.0.1",
     "reflect-metadata": "^0.1.13",
@@ -31,5 +28,10 @@
     "typescript": "^3.3.3",
     "yargs-parser": "^13.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/i18n": "^0.8.3",
+    "@types/node": "^10.12.24",
+    "@types/sqlite3": "^3.1.4",
+    "@types/yargs-parser": "^11.0.2"
+  }
 }

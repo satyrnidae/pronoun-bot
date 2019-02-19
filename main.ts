@@ -5,8 +5,8 @@ import registeredEvents from './events/registered-events.json';
 import registeredCommands from './commands/registered-commands.json';
 import { Client } from 'discord.js';
 import { contains } from './src/utility';
-import { ServiceIdentifiers } from './src/constants/index.js';
-import { Command, EventHandler, Configuration, CommandRegistry } from './src/interfaces';
+import { SERVICE_IDENTIFIERS } from './src/constants';
+import { Command, EventHandler, Configuration, CommandRegistry, DataAccess } from './src/interfaces';
 
 i18n.configure({
     locales: ['en'],
@@ -18,9 +18,9 @@ i18n.configure({
 })
 
 var client = new Client();
-var configuration = container.get<Configuration>(ServiceIdentifiers.Configuration);
-
-var commandRegistry = container.get<CommandRegistry>(ServiceIdentifiers.CommandRegistry);
+var configuration = container.get<Configuration>(SERVICE_IDENTIFIERS.CONFIGURATION);
+var commandRegistry = container.get<CommandRegistry>(SERVICE_IDENTIFIERS.COMMAND_REGISTRY);
+var dataAccess = container.get<DataAccess>(SERVICE_IDENTIFIERS.DATA_ACCESS);
 
 const commandDirectory = `${__dirname}/commands`;
 fs.readdir(commandDirectory, (err, items) => {

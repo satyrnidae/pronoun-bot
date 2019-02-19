@@ -1,1 +1,1 @@
-export { default as ServiceIdentifiers } from './service-identifiers';
+export { default as SERVICE_IDENTIFIERS } from './service-identifiers';

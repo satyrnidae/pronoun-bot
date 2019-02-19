@@ -3,7 +3,7 @@ import container from '../src/ioc-config';
 import { getHeart } from '../src/messages';
 import { Client, Message } from 'discord.js';
 import { Options, Arguments } from 'yargs-parser';
-import { ServiceIdentifiers } from '../src/constants';
+import { SERVICE_IDENTIFIERS } from '../src/constants';
 import { CommandRegistry, Command, Configuration } from '../src/interfaces';
 
 export default class HelpCommand implements Command {
@@ -24,11 +24,11 @@ export default class HelpCommand implements Command {
     configuration: Configuration;
 
     constructor() {
-        this.configuration = container.get(ServiceIdentifiers.Configuration);
+        this.configuration = container.get(SERVICE_IDENTIFIERS.CONFIGURATION);
     }
 
     run(client: Client, message: Message, args: Arguments): any {
-        const commandRegistry = container.get<CommandRegistry>(ServiceIdentifiers.CommandRegistry);
+        const commandRegistry = container.get<CommandRegistry>(SERVICE_IDENTIFIERS.COMMAND_REGISTRY);
         const commands = commandRegistry.getAll();
         const prefix = this.configuration.getPrefix(message.guild);
         const locale = message.author.locale || 'en';
